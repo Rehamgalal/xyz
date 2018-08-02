@@ -105,7 +105,7 @@ public class ArticleListActivity extends ActionBarActivity implements
                     @Override
                     public void onClick(View v) {
                         mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
-                        Snackbar snackbar1 = Snackbar.make(coordinatorLayout, "Message is restored!", Snackbar.LENGTH_SHORT);
+                        Snackbar snackbar1 = Snackbar.make(coordinatorLayout, "DONE!", Snackbar.LENGTH_SHORT);
                         snackbar1.show();
 
                     }
