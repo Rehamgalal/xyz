@@ -100,20 +100,16 @@ public class ArticleListActivity extends ActionBarActivity implements
     private BroadcastReceiver mRefreshingReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, final Intent intent) {
-            if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
+            if (!UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
                 Snackbar snackbar = Snackbar.make(coordinatorLayout,"no internet",Snackbar.LENGTH_LONG).setAction("Reload", new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
                         mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
                         Snackbar snackbar1 = Snackbar.make(coordinatorLayout, "DONE!", Snackbar.LENGTH_SHORT);
                         snackbar1.show();
-
                     }
-
                 });
                 snackbar.show();
-
-
                 updateRefreshingUI();
             }
         }
